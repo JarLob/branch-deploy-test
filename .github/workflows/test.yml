@@ -1,7 +1,5 @@
 on:
-  issues:
-    types: [opened, edited]
-  issue_comment:
+  pull_request_comment:
 
 permissions: {}
 
