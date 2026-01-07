@@ -1,5 +1,5 @@
 on:
-  pull_request_comment:
+  issue_comment:
     types: [created]
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   test:
-    if: ${{ github.event.issue.pull_request }} # only run on pull request comments
+    # if: ${{ github.event.issue.pull_request }} # only run on pull request comments
     runs-on: ubuntu-latest
     steps:
     - name: check gates
