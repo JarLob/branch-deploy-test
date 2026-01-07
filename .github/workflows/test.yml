@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: check gates
       id: branch-deploy
-      uses: jarlob/branch-deploy@gate
+      uses: github/branch-deploy@v11.1.2
       
     - name: print title
       env:
