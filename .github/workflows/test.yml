@@ -2,12 +2,12 @@ on:
   issue_comment:
     types: [created]
 
-permissions: {}
-#  pull-requests: write
-#  deployments: write
-#  contents: write
-#  checks: read
-#  statuses: read
+permissions:
+  pull-requests: write
+  deployments: write
+  contents: write
+  checks: read
+  statuses: read
 
 jobs:
   test:
@@ -15,17 +15,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: check gates
-      # id: branch-deploy
+      id: branch-deploy
       uses: jarlob/branch-deploy@gate
-      # with:
-      #  trigger: ".test"
+      with:
+        trigger: ".test"
 
     # Checkout your project's repository based on the commit SHA provided by the branch-deploy step
     # It is important to only ever operate on the commit SHA (where possible) as commit SHA's are immutable and you know exactly what you are deploying
-    #- uses: actions/checkout@v6
-    #  with:
-    #    ref: ${{ steps.branch-deploy.outputs.sha }}
+    - uses: actions/checkout@v6
+      with:
+        ref: ${{ steps.branch-deploy.outputs.sha }}
       
-    #- name: fake deploy
-    #  if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
-    #  run: echo "I am doing a fake deploy"
+    - name: fake deploy
+      if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
+      run: echo "I am doing a fake deploy"
