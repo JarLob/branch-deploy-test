@@ -6,7 +6,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: test
+    - name: check gates
+      id: branch-deploy
+      uses: jarlob/branch-deploy@gate
+      
+    - name: print title
       env:
         TITLE: ${{ github.event.issue.title }}
       run: echo "$TITLE"
