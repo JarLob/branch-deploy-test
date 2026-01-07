@@ -1,0 +1,12 @@
+on: issues
+
+permissions: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: test
+      env:
+        TITLE: ${{ github.event.issue.title }}
+      run: echo "$TITLE"
