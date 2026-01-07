@@ -16,7 +16,7 @@ jobs:
     steps:
     - name: check gates
       id: branch-deploy
-      uses: github/branch-deploy@v11.1.2
+      uses: jarlob/branch-deploy@gate
       with:
         trigger: ".test"
 
